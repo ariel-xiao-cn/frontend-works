@@ -1,13 +1,14 @@
-expressºó¶ËÊı¾İ¿âÅäÖÃ£º config/db.js
+### ç™¾åº¦æ–°é—»
+expressåç«¯æ•°æ®åº“é…ç½®ï¼š config/db.js
 
-server·şÎñµØÖ·ÅäÖÃ£º 
-  * ÒÆ¶¯¶Ë£º public/js/mobile/lib/config.js
+serveræœåŠ¡åœ°å€é…ç½®ï¼š 
+  * ç§»åŠ¨ç«¯ï¼š public/js/mobile/lib/config.js
   * admin: public/js/lib/config.js
 
 
-Ä¬ÈÏÈë¿Ú:
-   {·şÎñÆ÷µØÖ·}:3000
+é»˜è®¤å…¥å£:
+   {æœåŠ¡å™¨åœ°å€}:3000
 
-¾ßÌåÈë¿Ú: 
-   {·şÎñÆ÷µØÖ·}:3000/pages/admin.html 
-   {·şÎñÆ÷µØÖ·}:3000/pages/baiduIndex.html 
+å…·ä½“å…¥å£: 
+   {æœåŠ¡å™¨åœ°å€}:3000/pages/admin.html 
+   {æœåŠ¡å™¨åœ°å€}:3000/pages/baiduIndex.html 
