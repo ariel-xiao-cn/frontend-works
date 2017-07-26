@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript l4</title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/main_js4.css">
+    <!--[if lt IE 9]> 
+	<script> 
+	   (function() {
+	     if (!0) return;
+	     var e = "abbr, article, aside, audio, canvas, datalist, details, dialog, eventsource, figure, footer, header, hgroup, mark, menu, meter, nav, output, progress, section, time, video".split(', ');
+	     var i= e.length;
+	     while (i--){
+	         document.createElement(e[i])
+	     } 
+	})() 
+	</script>
+	<![endif]-->
+</head>
+
+<body>
+    <div class="container">
+        <header>计算器</header>
+        <p>
+            支持： + - * / 支持： sin/cos 角度制运算 AC= all clear, CE = clear Entry
+        </p>
+        <ul>
+            <li>
+                <div class="main-frame" id="main-frame">
+                    <div id="currentValue">
+                        <span id="cur-val">0</span>
+                        <span id="op"></span>
+                    </div>
+                    <ul class="digits">
+                        <li class="func" id="clearOneStep">X</li>
+                        <li class="func" id="clearAll">AC</li>
+                        <li class="func" id="clearEntry">CE</li>
+                        <li class="dig" data-type="dig">7</li>
+                        <li class="dig" data-type="dig">8</li>
+                        <li class="dig" data-type="dig">9</li>
+                        <li class="dig" data-type="dig">4</li>
+                        <li class="dig" data-type="dig">5</li>
+                        <li class="dig" data-type="dig">6</li>
+                        <li class="dig" data-type="dig">1</li>
+                        <li class="dig" data-type="dig">2</li>
+                        <li class="dig" data-type="dig">3</li>
+                        <li class="lg dig" data-type="dig">0</li>
+                        <li class="dig" data-type="dig" id="dot">.</li>
+                    </ul>
+                    <ul class="func-pad">
+                        <li id="switchNP">+/-</li>
+                        <li id="mod">%</li>
+                        <li id="divide">÷</li>
+                        <li id="sin">sin</li>
+                        <li id="times">x</li>
+                        <li id="cos">cos</li>
+                        <li id="plus">+</li>
+                        <li id="minors">-</li>
+                        <li class="lg" id="equals">=</li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <h3>计算结果区</h3>
+                <ul id="result">
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <script type="text/javascript" src="../javascripts/calculator.js"></script>
+</body>
+
+</html>

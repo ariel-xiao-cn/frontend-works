@@ -1,0 +1,155 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    position: relative;
+    min-width: 1000px;
+}
+
+.container {
+    width: 800px;
+    box-sizing: border-box;
+    margin: 200px auto;
+}
+
+.container ul li {
+    list-style: none;
+    width: 100%;
+    text-align: center;
+}
+
+.container header {
+    font-size: 18px;
+    font-weight: 700;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.container p {
+    font-size: 14px;
+    font-weight: 100;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.container input {
+    font-size: 14px;
+    padding: 5px;
+    margin: 5px;
+    display: block;
+    width: 500px;
+}
+
+.container ul li {
+    padding: 10px;
+}
+
+.container > ul > li:last-child > ul {
+    background: #e4e4e4;
+    box-sizing: border-box;
+}
+
+.container > ul > li:last-child > ul > li {
+    text-align: left;
+    padding-left: 50px;
+    box-sizing: border-box;
+}
+
+.container > ul > li:last-child > ul > li:nth-child(odd) {
+    background: #f5e5e5;
+}
+
+.container > ul > li:last-child > ul > li:nth-child(even) {
+    background: #fbfbfb;
+}
+
+.container > ul > li:last-child {
+    height: 500px;
+    background: #f3f3f3;
+    margin-top: 50px;
+}
+
+
+}
+.container button {
+    margin-left: 10px;
+    width: 100px;
+    height: 35px;
+    padding: 5px;
+    font-size: 15px;
+}
+h3 {
+    margin: 20px auto;
+}
+.container > ul > li:first-child {
+    height: 300px;
+}
+.main-frame {
+    width: 450px;
+    margin: 0 auto;
+}
+#currentValue {
+    height: 50px;
+    width: 440px;
+    margin: 5px;
+    background: #ccc;
+    line-height: 50px;
+    text-align: right;
+    padding-right: 20px;
+    font-size: 24px;
+    box-sizing: border-box;
+}
+.main-frame > ul.digits {
+    width: 270px;
+    box-sizing: border-box;
+    float: left;
+    cursor: pointer;
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    
+    -webkit-user-select: none;
+    /* Chrome/Safari/Opera */
+    
+    -khtml-user-select: none;
+    /* Konqueror */
+    
+    -moz-user-select: none;
+    /* Firefox */
+    
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    
+    user-select: none;
+    /* Non-prefixed version, currently */
+}
+.main-frame > ul > li {
+    float: left;
+    width: 80px;
+    box-sizing: border-box;
+    margin: 5px;
+    background: #ccc;
+}
+
+
+
+.main-frame > ul.func-pad {
+    float: left;
+    width: 180px;
+    box-sizing: border-box;
+      cursor: pointer;
+}
+.main-frame > ul > li.lg {
+    width: 170px;
+}
+
+.keyDown{
+	transition: 0.1s linear;
+	box-shadow: 0 0 5px #3e3e3e;
+}
+/*html5*/
+article,aside,dialog,footer,header,section,footer,nav,figure,menu{display:block}

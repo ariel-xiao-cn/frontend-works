@@ -1,0 +1,86 @@
+*{
+	margin:0;
+	padding:0;
+}
+
+html, body{
+	position: relative;
+	min-width: 1000px;
+}
+
+.container{
+    width: 500px;
+    box-sizing: border-box;
+    margin: 200px auto;
+}
+
+.container ul li{
+	list-style: none;
+	width: 100%;
+	text-align: center;
+}
+
+.container header{
+	font-size: 18px;
+	font-weight: 700;
+	width:100%;
+	text-align: center;
+	margin-bottom:15px;
+}
+
+.container p{
+	font-size: 14px;
+	font-weight: 100;
+	width:100%;
+	text-align: center;
+	margin-bottom:15px;
+}
+
+.container input{
+	font-size: 14px;
+    padding: 5px;
+    margin: 5px;
+    display: block;
+    width: 500px;
+
+}
+
+.container ul li{
+	padding:10px;
+}
+
+.container > ul > li:last-child > ul{
+	background: #e4e4e4;
+	box-sizing: border-box;
+}
+
+
+.container > ul > li:last-child > ul > li{
+	text-align: left;
+	margin-left:50px;
+}
+
+.container > ul > li:last-child > ul > li:nth-child(odd){
+	background:#f5e5e5;
+}
+
+
+.container > ul > li:last-child > ul > li:nth-child(even){
+	background:#fbfbfb;
+}
+
+
+
+.container button{
+	margin-left: 15px;
+    width: 200px;
+    height: 45px;
+    display: inline-block;
+    padding: 5px;
+    font-size: 15px;
+    margin-bottom: 15px;
+}
+
+h3{
+	margin:20px auto;
+}

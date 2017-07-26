@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>移动端新闻管理 - 后台</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <!--[if lt IE 9]>
+        <script src="../js/lib/html5shiv.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <input type="hidden" name="currentIndex" id="currentIndex" value="0">
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">移动端新闻管理</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li href="#"><a href="#">首页</a></li>
+                    <li class="active" class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">新闻管理 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a data-opt="insert-news" href="javascript:void(0)">新增新闻</a></li>
+                            <li><a href="#">新闻列表</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../navbar-static-top/">移动端新闻管理 v1.0.0</a></li>
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">张***, 您好 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">修改密码</a></li>
+                            <li><a href="#">个人信息</a></li>
+                            <li><a href="login.html">登出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+        <!--/.container-fluid -->
+    </nav>
+    <div class="main">
+        <!-- 子菜单的导航 -->
+        <aside class="col-sm-3 col-md-2">
+            <h2 class="module-title">新闻管理</h2>
+            <ul class="nav nav-sidebar">
+                <li>
+                    <a href="#">新闻条目管理</a>
+                    <ul>
+                        <li><a data-opt="insert-news" href="javascript:void(0)">新增新闻</a></li>
+                        <li><a href="">新闻列表</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </aside>
+        <!-- /子菜单的导航 -->
+        <!-- 内容部分 -->
+        <section id="figure-section" class="col-sm-8 col-md-9">
+            <!-- 内容部分/第一个section/整体图表区 引入第三方js库 Chart.js...-->
+            <section id="overview" class="row">
+            </section>
+            <!-- /内容部分/第一个section/整体图表区 -->
+            <!-- 列表展示区-->
+            <section id="gridview" class="row">
+                <!-- 标题-->
+                <header>
+                    <span class="tag"></span>
+                    <h1>近期新闻记录</h1>
+                    <div class="search-bar">
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <label for="newsTitleSearch">新闻标题</label>
+                                <input type="text" class="form-control" id="newsTitleSearch" placeholder="输入新闻标题">
+                            </div>
+                            <div class="form-group">
+                                <label for="newsTypeSearch">新闻类型</label>
+                                <select class="form-control" id="newsTypeSearch" name="newsTypeSearch">
+                                    <option value="0">请选择新闻类型</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="newsSourceSearch">新闻来源</label>
+                                <input type="text" class="form-control" id="newsSourceSearch" placeholder="输入新闻来源">
+                            </div>
+                             <div class="form-group">
+                                          <button type="button" class="btn btn-primary" id="news-form-search-submit" data-dismiss="modal">搜索新闻</button>
+                             </div>
+                
+                        </form>
+                    </div>
+                </header>
+                <!-- /标题-->
+                <!-- 内容-->
+                <article class="col-lg-12 col-md-12">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>新闻ID</th>
+                                <th>新闻标题</th>
+                                <th>新闻类型</th>
+                                <th>新闻图片</th>
+                                <th>创建时间</th>
+                                <th>更新时间</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </article>
+                <!-- /内容-->
+                <!-- 分页-->
+                <footer>
+                    <nav aria-label="Page navigation">
+                        <ul id="pager" class="pagination">
+                            <li id="prevPager">
+                                <a href="javascript:void(0)" aria-label="Previous">
+                                    <span aria-hidden="true">前一页</span>
+                                </a>
+                            </li>
+                            <li id="afterPager">
+                                <a href="javascript:void(0)" aria-label="Next">
+                                    <span aria-hidden="true">后一页</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </footer>
+                <!-- /分页-->
+            </section>
+        </section>
+    </div>
+    <div class="hidden panel" id="insert-news">
+        <div class="panel-heading">
+            <h4>
+                    创建一则新闻
+            </h4>
+        </div>
+        <div class="panel-body">
+            <form name="news-form">
+                <div class="form-group">
+                    <label for="newsType">新闻类型</label>
+                    <select class="form-control" id="newsType" name="newsType">
+                        <option value="0">请选择新闻类型</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="newsTitle">新闻标题</label>
+                    <input type="text" class="form-control" name="newsTitle" id="newsTitle" placeholder="新闻标题">
+                </div>
+                <div class="form-group">
+                    <label for="newsSource">新闻来源</label>
+                    <input type="text" class="form-control" id="newsSource" name="newsSource" placeholder="新闻来源">
+                </div>
+                <div class="form-group">
+                    <label for="newsImage">新闻图片</label>
+                    <input type="text" class="form-control" id="newsImage" name="newsImage" placeholder="新闻图片">
+                </div>
+                <button id="news-form-submit" type="submit" class="btn btn-default">提交</button>
+            </form>
+        </div>
+    </div>
+    <div id="deleteDialog" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">新闻删除确认</h4>
+                </div>
+                <div class="modal-body">
+                    <p></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="deleteNewsBtn" data-dismiss="modal">确认删除</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+    <div id="updateDialog" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">更新本则新闻</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="panel" id="update-news">
+                        <div class="panel-body">
+                            <form name="news-form">
+                                <input type="hidden" id="newsId">
+                                <div class="form-group">
+                                    <label for="newsType">新闻类型</label>
+                                    <select class="form-control" id="newsTypeUpdate" name="newsType">
+                                        <option value="0">请选择新闻类型</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="newsTitle">新闻标题</label>
+                                    <input type="text" class="form-control" name="newsTitle" id="newsTitleUpdate" placeholder="新闻标题">
+                                </div>
+                                <div class="form-group">
+                                    <label for="newsSource">新闻来源</label>
+                                    <input type="text" class="form-control" id="newsSourceUpdate" name="newsSourceUpdate" placeholder="新闻来源">
+                                </div>
+                                <div class="form-group">
+                                    <label for="newsImage">新闻图片</label>
+                                    <input type="text" class="form-control" id="newsImageUpdate" name="newsImageUpdate" placeholder="新闻图片">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="news-form-update-submit" data-dismiss="modal">确认提交</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+    <script data-main="../js/app" src="../js/lib/require.js"></script>
+</body>
+
+</html>
