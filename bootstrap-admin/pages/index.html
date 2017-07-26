@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>库存管理系统 - 后台</title>
+    <link rel="stylesheet" href="../stylesheets/main.css">
+    <link rel="stylesheet" href="../stylesheets/bootstrap.min.css">
+    <script src="../javascripts/Chart.bundle.js"></script>
+    <script src="../javascripts/utils.js"></script>
+</head>
+
+<body>
+    <!-- Static navbar -->
+    <nav class="navbar navbar-default navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">库存管理系统</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li href="#"><a href="#">首页</a></li>
+                    <li><a href="#">商品管理</a></li>
+                    <li class="active"><a href="#">出入库管理</a></li>
+                    <li><a href="#">存储区管理</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">库存报告 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">低库存商品报告</a></li>
+                            <li><a href="#">库存流水报告</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li class="dropdown-header">问题商品</li>
+                            <li><a href="#">残损商品报告</a></li>
+                            <li><a href="#">失踪商品报告</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="../navbar-static-top/">库存管理系统 v1.0.0</a></li>
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">张***, 您好 <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">修改密码</a></li>
+                            <li><a href="#">个人信息</a></li>
+                            <li><a href="login.html">登出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+        <!--/.container-fluid -->
+    </nav>
+    <div class="main">
+        <!-- 子菜单的导航 -->
+        <aside class="col-sm-3 col-md-2">
+            <h2 class="module-title">货物出入库管理</h2>
+            <ul class="nav nav-sidebar">
+                <li>
+                    <a href="#">货物入库</a>
+                    <ul>
+                        <li><a href="">新增入库</a></li>
+                        <li><a href="">批量入库</a></li>
+                        <li><a href="">查询入库记录</a></li>
+                        <li><a href="">管理入库记录</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav nav-sidebar">
+                <li>
+                    <a href="">货物出库</a>
+                    <ul>
+                        <li><a href="">新增出库</a></li>
+                        <li><a href="">批量出库</a></li>
+                        <li><a href="">查询出库记录</a></li>
+                        <li><a href="">管理出库记录</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </aside>
+        <!-- /子菜单的导航 -->
+        <!-- 内容部分 -->
+        <section id="figure-section" class="col-sm-8 col-md-9">
+            <!-- 内容部分/第一个section/整体图表区 引入第三方js库 Chart.js...-->
+            <section id="overview" class="row">
+                <header>
+                    <span class="tag"></span>
+                    <h1>近期出入库概况展示</h1>
+                </header>
+                <!-- 内容部分/第一个section/整体图表区 - 每个article包含一种图示 -->
+                <article class="col-lg-7 col-md-7">
+                    <div class="canvas-holder">
+                        <canvas id="line-Chart" height="200"></canvas>
+                    </div>
+                    <footer>
+                        <h5>
+                        本月出入库流量 <span> 1,800+ 件 商品</span>
+                    </h5>
+                    </footer>
+                </article>
+                <article class="col-lg-2 col-md-2">
+                    <div class="canvas-holder">
+                        <canvas id="in-Chart"></canvas>
+                    </div>
+                    <footer>
+                        <h5>
+                        今日入库 <span> 150+ 件 商品</span>
+                    </h5>
+                    </footer>
+                </article>
+                <article class="col-lg-2 col-md-2">
+                    <div class="canvas-holder">
+                        <canvas id="out-Chart"></canvas>
+                    </div>
+                    <footer>
+                        <h5>
+                        今日出库 <span> 80+ 件 商品</span>
+                    </h5>
+                    </footer>
+                </article>
+                <script>
+                var randomScalingFactor = function() {
+                    return Math.round(Math.random() * 100);
+                };
+
+                var config_in = {
+                    type: 'doughnut',
+                    data: {
+                        datasets: [{
+                            data: [
+                                randomScalingFactor(),
+                                randomScalingFactor(),
+                                randomScalingFactor(),
+                            ],
+                            backgroundColor: [
+                                window.chartColors.red,
+                                window.chartColors.orange,
+                                window.chartColors.blue,
+                            ],
+                            label: 'Dataset 1'
+                        }],
+                        labels: [
+                            "化妆用品",
+                            "母婴用品",
+                            "电脑配件",
+
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            text: '商品入库统计',
+                            fontSize: 18
+                        },
+                        animation: {
+                            animateScale: true,
+                            animateRotate: true
+                        }
+                    }
+                };
+
+                var config_out = {
+                    type: 'doughnut',
+                    data: {
+                        datasets: [{
+                            data: [
+                                randomScalingFactor(),
+                                randomScalingFactor(),
+                                randomScalingFactor(),
+                            ],
+                            backgroundColor: [
+                                window.chartColors.yellow,
+                                window.chartColors.green,
+                                window.chartColors.orange,
+                            ],
+                            label: 'Dataset 2'
+                        }],
+                        labels: [
+                            "书籍影音",
+                            "电子产品",
+                            "速冻食品",
+
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            text: '商品出库统计',
+                            fontSize: 18
+                        },
+                        animation: {
+                            animateScale: true,
+                            animateRotate: true
+                        }
+                    }
+                };
+
+
+                var lineChartData = {
+                    labels: ["6月5日", "6月6日", "6月7日", "6月8日", "前天", "昨天", "今天"],
+                    datasets: [{
+                        label: "入库",
+                        borderColor: window.chartColors.red,
+                        backgroundColor: window.chartColors.red,
+                        fill: false,
+                        data: [
+                            randomScalingFactor(),
+                            randomScalingFactor(),
+                            randomScalingFactor(),
+                            randomScalingFactor(),
+                            randomScalingFactor(),
+                            randomScalingFactor(),
+                            randomScalingFactor()
+                        ],
+                        yAxisID: "y-axis-1",
+                    }, {
+                        label: "出库",
+                        borderColor: window.chartColors.blue,
+                        backgroundColor: window.chartColors.blue,
+                        fill: false,
+                        data: [
+                            randomScalingFactor(),
+                            randomScalingFactor(),
+                            randomScalingFactor(),
+                            randomScalingFactor(),
+                            randomScalingFactor(),
+                            randomScalingFactor(),
+                            randomScalingFactor()
+                        ],
+                        yAxisID: "y-axis-2"
+                    }]
+                };
+
+
+                window.onload = function() {
+                    window.inputChart = new Chart(document.getElementById("in-Chart"), config_in);
+                    window.outputChart = new Chart(document.getElementById("out-Chart"), config_out);
+
+                    var ctx = document.getElementById("line-Chart").getContext("2d");
+                    window.myLine = Chart.Line(ctx, {
+                        data: lineChartData,
+                        options: {
+                            responsive: true,
+                            hoverMode: 'index',
+                            stacked: false,
+                            title: {
+                                display: true,
+                                text: '30天内商品出入库变化',
+                                fontSize: 18
+                            },
+                            scales: {
+                                yAxes: [{
+                                    type: "linear",
+                                    display: true,
+                                    position: "left",
+                                    id: "y-axis-1",
+                                }, {
+                                    type: "linear",
+                                    display: true,
+                                    position: "right",
+                                    id: "y-axis-2",
+
+                                    // grid line settings
+                                    gridLines: {
+                                        drawOnChartArea: false,
+                                    },
+                                }],
+                            }
+                        }
+                    });
+                };
+                </script>
+            </section>
+            <!-- /内容部分/第一个section/整体图表区 -->
+            <!-- 列表展示区-->
+            <section id="gridview" class="row">
+                <!-- 标题-->
+                <header>
+                    <span class="tag"></span>
+                    <h1>近期出入库商品记录</h1>
+                </header>
+                <!-- /标题-->
+                <!-- 内容-->
+                <article class="col-lg-12 col-md-12">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>记录ID</th>
+                                <th>商品名称</th>
+                                <th>出入库类型</th>
+                                <th>件数</th>
+                                <th>发生时间</th>
+                                <th>记录人员 | 值班仓库</th>
+                                <th>备注</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2734</td>
+                                <td><span class="label label-info">书籍影像</span>百鬼夜行(套装共2册) 平装 – 宫竹正 (作者), 鸟山石燕 (插图作者)</td>
+                                <td><span class="label label-default">商品入库</span></td>
+                                <td>100件</td>
+                                <td>刚刚发生</td>
+                                <td><span class="label label-info">Johnny, Wang</span><span class="label label-info">5号库</span></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>2733</td>
+                                <td><span class="label label-danger">电子产品</span>Apple iPhone 7 Plus 128G 黑色 移动联通电信4G手机</td>
+                                <td><span class="label label-default">商品入库</span></td>
+                                <td>15件</td>
+                                <td>2分钟前</td>
+                                <td><span class="label label-info">Johhny, Wang</span><span class="label label-info">5号库</span></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>2732</td>
+                                <td><span class="label label-info">书籍影像</span>Head First HTML与CSS(第2版) - 罗布森 (Elisabeth Robson)、 弗里曼 (Eric Freeman)</td>
+                                <td><span class="label label-warning">商品出库</span></td>
+                                <td>880件</td>
+                                <td>1个小时前</td>
+                                <td><span class="label label-primary">Wei, Zhang</span><span class="label label-primary">1号库</span></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>2731</td>
+                                <td><span class="label label-info">书籍影像</span>CSS高效开发实战:CSS 3、LESS、SASS、Bootstrap、Foundation - 谢郁</td>
+                                <td><span class="label label-warning">商品出库</span></td>
+                                <td>15件</td>
+                                <td>1个小时前</td>
+                                <td><span class="label label-primary">Wei, Zhang</span><span class="label label-primary">1号库</span></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>2730</td>
+                                <td><span class="label label-info">书籍影像</span>富兰克林自传 - 本杰明·富兰克林 (Benjamin Franklin)、 亦言 </td>
+                                <td><span class="label label-warning">商品出库</span></td>
+                                <td>300件</td>
+                                <td>前天</td>
+                                <td><span class="label label-success">Alice, Quinn</span><span class="label label-success">3号库</span></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>2729</td>
+                                <td><span class="label label-info">书籍影像</span>人类的群星闪耀时(全译本) (世界文学文库) (新版百部世界文学文库) - 斯蒂芬·茨威格、 高中甫 </td>
+                                <td><span class="label label-warning">商品出库</span></td>
+                                <td>15件</td>
+                                <td>2017-6-3 23:59:23</td>
+                                <td><span class="label label-success">Alice, Quinn</span><span class="label label-success">3号库</span></td>
+                                <td>批量入库</td>
+                            </tr>
+                            <tr>
+                                <td>2728</td>
+                                <td><span class="label label-info">书籍影像</span>山海经(白话全译彩图珍藏版) 平装 </td>
+                                <td><span class="label label-warning">商品出库</span></td>
+                                <td>15件</td>
+                                <td>2017-6-1 13:05:10</td>
+                                <td><span class="label label-success">Alice, Quinn</span><span class="label label-success">3号库</span></td>
+                                <td>批量入库</td>
+                            </tr>
+                            <tr>
+                                <td>2727</td>
+                                <td><span class="label label-info">书籍影像</span>百物语(日本千年妖怪经典)(套装共3册) 平装 - 杉浦日向子 (作者), 刘玮 (译者)</td>
+                                <td><span class="label label-warning">商品出库</span></td>
+                                <td>15件</td>
+                                <td>2017-6-1 08:13:42</td>
+                                <td><span class="label label-success">Alice, Quinn</span><span class="label label-success">3号库</span></td>
+                                <td>批量入库</td>
+                            </tr>
+                            <tr>
+                                <td>2726</td>
+                                <td><span class="label label-primary">服装首饰</span>Mustang 男 帆布鞋休闲运动 4058-305（亚马逊进口直采,德国品牌）</td>
+                                <td><span class="label label-default">商品入库</span></td>
+                                <td>15件</td>
+                                <td>2017-5-21 05:08:23</td>
+                                <td><span class="label label-primary">Wei, Zhang</span><span class="label label-primary">1号库</span></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>2725</td>
+                                <td><span class="label label-primary">服装首饰</span>TAMARIS 女 生活休闲鞋 1-1-24200-28 004</td>
+                                <td><span class="label label-default">商品入库</span></td>
+                                <td>15件</td>
+                                <td>2017-5-20 13:05:10</td>
+                                <td><span class="label label-primary">Wei, Zhang</span><span class="label label-primary">1号库</span></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </article>
+                <!-- /内容-->
+                <!-- 分页-->
+                <footer>
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination">
+                            <li>
+                                <a href="#" aria-label="Previous">
+                                    <span aria-hidden="true">前一页</span>
+                                </a>
+                            </li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li>
+                                <a href="#" aria-label="Next">
+                                    <span aria-hidden="true">后一页</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </footer>
+                <!-- /分页-->
+            </section>
+        </section>
+    </div>
+    <script src="../javascripts/jquery.min.js"></script>
+    <script src="../javascripts/bootstrap.min.js"></script>
+</body>
+
+</html>

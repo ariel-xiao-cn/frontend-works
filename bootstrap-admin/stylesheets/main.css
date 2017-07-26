@@ -1,0 +1,264 @@
+/* initialize */
+
+html,
+body {
+    min-width: 100%;
+    background: #222 !important;
+}
+
+.lg-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 500px;
+    align-items: center;
+    justify-content: center;
+}
+
+.center {
+    margin: 0 auto;
+}
+
+
+/* fonts */
+
+
+/* blocks */
+
+.navbar {
+    margin-bottom: 0 !important;
+}
+
+.main {
+    width: 100%;
+    height: 100%;
+    background: #fff;
+}
+
+.main > aside {
+    height: 100%;
+    padding: 0;
+    background: #222;
+}
+
+.main > aside > ul {
+    background-color: rgba(76, 76, 76, .18);
+}
+
+.main > aside > ul > li {
+    padding: 5px 0 15px 0;
+    list-style: none;
+}
+
+.main > aside > ul > li:hover {
+    background-color: rgba(76, 76, 76, .3);
+}
+
+.main > aside > ul li a {
+    background-color: rgba(76, 76, 76, .3);
+}
+
+.main > aside > ul li ul {
+    padding-left: 15px;
+}
+
+.main > aside .nav > li > a:focus,
+.main > aside .nav > li > a:hover {
+    text-decoration: none;
+    background-color: rgba(76, 76, 76, .3);
+}
+
+.main > aside > ul > li > a {
+    font-family: '宋体', arial;
+    font-size: 14px;
+    font-weight: 800;
+    text-decoration: none;
+    letter-spacing: 3px;
+    color: #fff;
+}
+
+.main > aside > ul > li ul li {
+    padding: 20px 15px;
+    list-style: none;
+}
+
+.main > aside > ul > li ul li > a {
+    font-family: '宋体', arial;
+    font-size: 14px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.module-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 20px;
+    letter-spacing: 5px;
+    color: #d3d3d3;
+    background-color: rgba(76, 76, 76, .3);
+}
+
+
+/* login page */
+
+.banner {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner h2 {
+    letter-spacing: 3px;
+    color: rgba(119, 119, 119, .68);
+}
+
+.login-panel {
+    display: block;
+    width: 400px;
+    height: auto;
+}
+
+.login-panel > .panel-body {
+    padding: 25px !important;
+}
+
+.login-panel .signin-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.login-panel .signin-form .input-group {
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+.login-panel .signin-form .input-group > .form-control {
+    font-family: '宋体', arial;
+    font-size: 15px;
+    padding: 20px;
+    letter-spacing: 2px;
+}
+
+.login-panel .panel-heading h4 {
+    font-family: '宋体', arial;
+    font-size: 16px;
+    font-weight: 800;
+    text-align: center;
+    letter-spacing: 3px;
+    color: rgba(119, 119, 119, .68);
+}
+
+button.btn-block {
+    font-family: '宋体', arial;
+    font-size: 16px;
+    display: block;
+    width: 100%;
+    letter-spacing: 5px;
+}
+
+.glyphicon {
+    position: relative;
+    top: 0 !important;
+    ;
+}
+
+.input-group-addon {
+    color: #ccc !important;
+}
+
+
+/* prettify */
+
+.gray-shadow {
+    box-shadow: 0 0 15px #c7a3a3 !important;
+}
+
+section header {
+    position: relative;
+    display: block;
+    width: 100%;
+    margin-left: 10px;
+}
+
+section header h1 {
+    display: inline-block;
+    padding: 15px 10px;
+    color: #d3d3d3;
+}
+
+section header span.tag {
+    position: relative;
+    top: 5px;
+    display: inline-block;
+    width: 10px;
+    height: 36px;
+    background: #ccc;
+}
+
+#overview article {
+    max-width: 555px;
+    margin: 10px;
+}
+
+#figure-section {
+    padding-left: 30px;
+    border-left: 1px solid #ddd;
+    background: #fff;
+}
+
+#figure-section article canvas {
+    padding: 35px 15px 15px 15px;
+}
+
+#figure-section article footer {
+    padding: 20px;
+    text-align: center;
+}
+
+#figure-section article footer h5 {
+    font-family: 'Microsoft Yahei', Arial;
+    font-size: 18px;
+    font-weight: 800;
+    color: #ddd;
+}
+
+#figure-section table tbody tr td:first-child {
+    font-weight: bold;
+    width: 100px;
+}
+
+#figure-section table tbody tr td:nth-child(2) {
+    font-weight: bold;
+    width: 800px;
+}
+
+#figure-section table tbody tr td:nth-child(2) span {
+    margin-right: 10px;
+}
+
+#figure-section table tbody tr td:nth-child(3) {
+    width: 100px;
+}
+
+#figure-section table tbody tr td:nth-child(6) {
+    width: 300px;
+}
+
+#figure-section .label {
+    margin-right: 5px;
+    padding: 5px 10px !important;
+}
+
+#figure-section footer nav {
+    text-align: center;
+}
+
+#figure-section footer nav ul li span,
+#figure-section footer nav ul li a {
+    font-weight: 800;
+    color: rgba(76, 76, 76, .3);
+}
