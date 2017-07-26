@@ -1,0 +1,17 @@
+
+.l-horizontal-liststyle {
+    list-style: none;
+    overflow: hidden;
+    zoom: 1;
+    height: 100%;
+    &__item {
+        float: left;
+        height: 100%;
+    }
+    &__i {
+        height: 100%;
+        width: 100%;
+        display: block;
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,27 @@
+/* 控制定位的 原子类 */
+
+.mTop-10 {
+    margin-top: 10px;
+}
+
+.mTop-20 {
+    margin-top: 20px;
+}
+
+.mRight-10 {
+    margin-right: 10px;
+}
+
+.mLeft-10 {
+    margin-left: 10px;
+}
+
+.clearfix {
+    &:after {
+        visibility: hidden;
+        clear: both;
+        display: block;
+        content: ".";
+        height: 0;
+    }
+}

@@ -1,0 +1,13 @@
+//font, color, weight for text
+$font-family-base: 'Microsoft Yahei', Georgia, 'Times New Roman', Times, serif;
+
+$font-size-base: 14px;
+$font-size-h1: floor($font-size-base * 2.6);
+$font-size-h2: floor($font-size-base * 1.7);
+$font-size-h3: floor($font-size-base * 1.3);
+$font-size-small: floor($font-size-base * 0.7);
+
+$heading-font-weight: 500;
+$font-color:inherit;
+
+$text-spread-mid:1.05em;

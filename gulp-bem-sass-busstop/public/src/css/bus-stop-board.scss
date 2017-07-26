@@ -1,0 +1,209 @@
+/*   imports   */
+
+@import '_color'; //colors for background, head, paragraph...
+@import '_typography'; //fonts for header, paragraphs...
+@import '_layout';
+@import '_effect';
+@import '_position';
+
+
+
+
+
+
+
+
+/* imports end */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    font-family: $font-family-base;
+}
+
+.container {}
+
+//bus board 
+.bus-board {
+    position: relative;
+    top: 50px;
+    width: 500px;
+    margin: 0 auto;
+    background: $board-background-secondary;
+    border: 10px solid $board-border-primary;
+    @extend .bdr15p; //header
+    &__cur-stop {
+        padding: 15px{
+        	left:40px;
+        };
+        text-align: center;
+        background: $board-background-primary;
+        letter-spacing: $text-spread-mid;
+        border: {
+            bottom: 20px solid $board-border-secondary;
+        }
+    }
+}
+
+.stop-title {
+	line-height: 30px;
+	font-size: $font-size-base;
+    &--large {
+        font-size: $font-size-h1;
+    }
+    &--mid {
+		font-size: $font-size-h2;
+    }
+    &--reverse {
+        color: $board-font-primary-reverse;
+    }
+    &--sml {
+        font-size: $font-size-h3;
+        letter-spacing: -0.05em;
+    }
+}
+
+.stop-subtitle {
+    display: block;
+    text-align: center;
+    &--mid {
+        font-size: $font-size-base;
+    }
+    &--sml {
+        font-size: $font-size-small;
+        letter-spacing: -0.10em;
+    }
+}
+
+
+//route list
+.routes-list {
+    &__item {
+        height: 250px;
+        background: $board-background-secondary;
+    }
+}
+
+
+//route body -- >  head
+.route-head {}
+
+//route body --> head --> summary
+.head-summary {
+    float: left;
+    height: 100%;
+    width: 140px;
+    &__id {
+        text-align: center;
+        background: $board-color-primary;
+        color: $board-font-primary-reverse;
+        width: 100%;
+        font-size: $font-size-h1;
+    }
+    &__time {
+        padding: {
+            top: 5px;
+            bottom: 5px;
+        }
+        font-size: $font-size-small;
+    }
+}
+
+//route body --> head --> goto
+.head-goto {
+    padding-right: 70px;
+    float: right;
+    &__item {
+    	width: 90px;
+    	text-align:center;
+        padding-left: 10px;
+        float: left;
+        color: $board-font-primary;
+        &--sml{
+        	width:25px;
+        }
+    }
+    &__connectline{
+    	position: relative;
+    	top:15px;
+    	width: 25px;
+    	height: 2px;
+    	background: $board-font-primary;
+    }
+}
+
+//route detail 
+.route-detail {
+    height: 120px;
+    background: $board-route-background-primary;
+}
+
+//route detail --> stoplist
+.detail-stoplist {
+    list-style: none;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    &__item {
+        color: $board-font-primary-reverse;
+
+        width: 1em;
+        font-size: 10px;
+
+        writing-mode: vertical-lr;
+        height: 100px;
+        text-align-last: justify;
+        -moz-text-align-last: justify;
+        -ms-text-align-last: justify;
+        -moz-text-align: justify;
+        text-align: justify;
+    }
+}
+
+
+//route detail --> appendix
+.detail-appendix {
+    padding-bottom: 20px;
+    border: {
+        bottom: 5px solid $board-border-secondary;
+    }
+    &--last-route {
+        border: {
+            bottom: 0;
+        }
+    }
+    &__price {
+        padding-top: 10px;
+        font-size: $font-size-small;
+        text-align: center;
+        display: block;
+    }
+    &__direction-sign {
+        width: 100%;
+        position: relative;
+        margin-top: 10px;
+        padding-left: 70px;
+        box-sizing: border-box;
+    }
+}
+
+.straight-line {
+    width: 350px;
+    height: 3px;
+    background: $board-color-primary;
+    float: left;
+}
+
+.arrow-to-right {
+    height: 0;
+    width: 0;
+    border-top: 10px solid transparent;
+    border-left: 20px solid $board-color-primary;
+    float: left;
+    margin-top: -7px;
+}

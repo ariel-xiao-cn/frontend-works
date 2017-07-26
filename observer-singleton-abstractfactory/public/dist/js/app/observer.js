@@ -1,0 +1,1 @@
+"use strict";define(["jquery"],function(n){var u=n({});return n.subscribe=function(){u.on.apply(u,arguments)},n.unsubscribe=function(){u.off.apply(u,arguments)},n.publish=function(){u.trigger.apply(u,arguments)},n});

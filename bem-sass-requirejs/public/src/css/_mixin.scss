@@ -1,0 +1,75 @@
+/* mixin utilities */
+
+@mixin dropdown-item($width:50px, $padding-left:25px) {
+    height: 60px;
+    width: $width;
+    padding-left: $padding-left;
+    line-height: 60px;
+    font-size: 14px;
+    position: relative;
+}
+
+@mixin triangle() {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-top: 1px solid #c1c1c1;
+    border-left: 1px solid #c1c1c1;
+    position: absolute;
+    top: 25px;
+    right: 10px;
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+    -moz-transform: rotate(-135deg);
+    -ms-transform: rotate(-135deg);
+    transform-origin: 4px 4px;
+}
+
+@mixin header-icon-small($url) {
+    background: url($url) no-repeat center;
+    background-size: $icon-small;
+}
+
+@mixin header-icon-normal($url) {
+    background: url($url) no-repeat center;
+    background-size: $icon-normal;
+}
+
+@mixin index-block($width, $img-name) {
+    text-align: center;
+    color: #fff;
+    width: $width;
+    height: 100%;
+    position: relative;
+    background: url($img-name);
+    background-size: $width 270px;
+}
+
+
+
+
+
+
+
+/* vertical mid structure*/
+
+
+/* container > item */
+
+@mixin vertical-mid-container($height) {
+    height: $height;
+    line-height: $height;
+}
+
+@mixin vertical-mid-item($height) {
+    height: $height;
+    vertical-align: middle;
+}
+
+
+
+
+
+
+
+/* vertical mid  end */

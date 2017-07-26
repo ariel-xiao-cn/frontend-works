@@ -1,0 +1,46 @@
+/* 定义 页面周边功能的 组件 */
+
+/* c- sidebar */
+
+.c-sidebar {
+    position: fixed;
+    bottom: 50px;
+    width: 34px;
+    height: 65px;
+    background: #ccc;
+    right: 50%;
+    margin-right: -550px;
+    &__gotop {
+        @extend .c-sidebar-span-style-small;
+        height: 35px;
+        background: url($relative-img-folder + 'sidebar-gotop.jpg') 0 0 no-repeat;
+        background-position: 0 0;
+        float: left;
+        background-size: 35px;
+        &:hover {
+            background: url($relative-img-folder + 'sidebar-gotop-2.jpg') 0 0 no-repeat;
+            background-position: 0 0;
+
+            background-size: 35px;
+        }
+    }
+    &__phone {
+        @extend .c-sidebar-span-style-small;
+        height: 30px;
+        background: #efeded url($relative-img-folder + 'sidebar-phone-1.png') center no-repeat;
+        float: left;
+        background-size: 13px;
+    }
+}
+
+.c-sidebar-span-style-small {
+    width: 100%;
+    cursor: pointer;
+}
+
+
+
+
+
+
+/* c- sidebar end */
